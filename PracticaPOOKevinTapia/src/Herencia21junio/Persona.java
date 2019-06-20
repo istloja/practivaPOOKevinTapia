@@ -72,7 +72,7 @@ public class Persona {
     public static void main(String[] args) {
         Persona objeto=new Persona();
         objeto.setNombre("viche");
-        objeto.setCedula(1105001111);
+        objeto.setCedula(1105001112);
         System.out.println(objeto.getNombre());
     }
 }

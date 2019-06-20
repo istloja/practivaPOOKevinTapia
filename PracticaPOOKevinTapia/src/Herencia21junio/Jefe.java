@@ -59,7 +59,7 @@ public class Jefe extends Persona{
         Jefe objeto=new Jefe();
         objeto.cargo();
         objeto.experiencia();
-        objeto.titulo();
+        objeto.titulo();//
         objeto.Nombre();
         objeto.Cedula();
     }

@@ -42,7 +42,7 @@ public void pedir(){
         Cliente objeto=new Cliente();//creo un nuevo objeto
         //llamo al objeto saludar de la clase principal Persona
         objeto.saludar();//imprime objeto 
-        objeto.pedir();
+        objeto.pedir();//imprime
         objeto.test();
 
     }
