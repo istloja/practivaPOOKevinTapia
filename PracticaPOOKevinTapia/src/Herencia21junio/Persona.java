@@ -63,9 +63,16 @@ public class Persona {
     public void despedir() {
         System.out.println("chao");
     }
+    public void Nombre(){
+        System.out.println("viche");
+    }
+        public void Cedula(){
+        System.out.println(1012910328);
+    }
     public static void main(String[] args) {
         Persona objeto=new Persona();
         objeto.setNombre("viche");
+        objeto.setCedula(1105001111);
         System.out.println(objeto.getNombre());
     }
 }
