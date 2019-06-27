@@ -28,4 +28,5 @@ public class Figura {
     public void setPerimetro(double perimetro) {
         this.perimetro = perimetro;
     }
+    
 }

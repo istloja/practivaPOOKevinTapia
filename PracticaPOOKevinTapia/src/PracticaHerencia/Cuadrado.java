@@ -10,5 +10,13 @@ package PracticaHerencia;
  * @author its
  */
 public class Cuadrado extends FiguraBidimensional {
-    
+
+    public double calcularArea(double Lado) {
+        return Math.pow(Lado, 2);
+    }
+
+    public double calcularPerimetro(double Lado) {
+        return Lado + Lado + Lado + Lado;
+    }
+
 }
