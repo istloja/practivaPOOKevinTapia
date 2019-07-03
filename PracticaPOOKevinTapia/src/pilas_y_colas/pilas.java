@@ -22,7 +22,7 @@ public class pilas {
         pilas.push(0);
         //solo se puede obtener el ultimo valor con peek y sirve para ver el ultimo valor
         System.out.println("el ultimo elemento en la pila es: "+pilas.peek());
-        while (pilas.empty()== false )//mientras que la pila no estwe vacia(mientras tenga datos adentro)
+        while (pilas.empty()== false )//mientras que la pila no este vacia(mientras tenga datos adentro)
         {
             System.out.println(pilas.pop());//pop sirve para obtener el ultimo valor pero ala vez lo va eliminar
        //vaciar la pila
