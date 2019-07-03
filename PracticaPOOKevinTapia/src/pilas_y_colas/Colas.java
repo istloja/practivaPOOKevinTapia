@@ -43,7 +43,7 @@ public class Colas {
     {
         if(isEmpty())
         {
-            System.out.println("La cola esta vacia, inserte datos!");
+            System.out.println("La cola esta vacia, inserte datos.!");
             return "Cola vacia";
         }
         else

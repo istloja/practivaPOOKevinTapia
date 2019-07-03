@@ -16,7 +16,7 @@ public class Ejecucion_cola {
             cola.offer(i);//offer insertar
             while(cola.peek()!=null)//peek sirve para consultar
             {
-                System.out.println(cola.poll());//poll sirve para extraer
+                System.out.println(cola.poll());//poll sirve .para extraer
             }
             
         }

@@ -25,7 +25,7 @@ public class pilas {
         while (pilas.empty()== false )//mientras que la pila no este vacia(mientras tenga datos adentro)
         {
             System.out.println(pilas.pop());//pop sirve para obtener el ultimo valor pero ala vez lo va eliminar
-       //vaciar la pila
+       //vaciar la pila.
         }
         
     }
