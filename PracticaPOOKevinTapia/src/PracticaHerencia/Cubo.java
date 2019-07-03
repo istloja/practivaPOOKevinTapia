@@ -10,5 +10,10 @@ package PracticaHerencia;
  * @author its
  */
 public class Cubo extends FiguraTridimensional{
-    
+       public double calcularlogintudcubo(double cubo){
+    return Math.pow(cubo,cubo);
+    }
+        public double calcularVolumencubo(double volumen){
+        return volumen*volumen*volumen;
+        }
 }
