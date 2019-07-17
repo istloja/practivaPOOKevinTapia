@@ -13,7 +13,7 @@ public class Madre extends Persona {
     Hijo hijo;
     public Madre(){
     setNombre("rut");
-    setEdad(0);
+    setEdad(40);
     setApellido("chimbo");
     setCedula(134124235);
     hijo=new Hijo();

@@ -19,8 +19,10 @@ public class Ejecutar {
         madre.setHijo(hijo);
         padre.setHijo(hijo);
         System.out.println("nombre del papa: "+hijo.getPadre().getNombre());
-        System.out.println("nombre del hijo de :"+madre.getNombre()+"es"+madre.getHijo().getNombre());
-        System.out.println("nombre del hijo de :"+padre.getNombre()+"es"+madre.getHijo().getNombre());
+        System.out.println("nombre del hijo de :"+madre.getNombre()+" es: "+madre.getHijo().getNombre());
+        System.out.println("nombre del hijo de :"+padre.getNombre()+" es: "+madre.getHijo().getNombre());
+        System.out.println("nombre de mama es :"+madre.getNombre());
+        System.out.println("la edad del hijo es:"+hijo.getEdad()+" la edad de la madre es:"+madre.getEdad());
     }
 
 }

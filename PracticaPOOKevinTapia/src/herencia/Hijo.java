@@ -15,7 +15,7 @@ public class Hijo extends Persona {
 
     public Hijo(){
     setNombre("kevin");
-    setEdad(0);
+    setEdad(20);
     setApellido("tapia");
     setCedula(1724638299);
     
