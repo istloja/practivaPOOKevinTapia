@@ -132,6 +132,38 @@ public class Jugador implements Serializable {
         return edadmenor;
     }
 
+    public Jugador masGoles(List<Jugador> lista) {
+        Jugador mayorgoles = lista.get(0);
+        for (Jugador jugador : lista) {
+            if (jugador.getNumeroGoles() > mayorgoles.getNumeroGoles()) {
+                mayorgoles = jugador;
+            }
+        }
+        return mayorgoles;
+    }
+
+    public Jugador debutoP(List<Jugador> lista) {
+        Jugador debuto = lista.get(0);
+        for (Jugador jugador : lista) {
+            if (debuto.getAñoDebut() > jugador.getAñoDebut()) {
+                debuto = jugador;
+            }
+
+        }
+        return debuto;
+    }
+
+    public Jugador titulos(List<Jugador> lista) {
+        Jugador mastitulo = lista.get(0);
+        for (Jugador jugador : lista) {
+            if (jugador.getEquipo().getNumerotitulos() > mastitulo.getEquipo().getNumerotitulos()) {
+                mastitulo = jugador;
+            }
+
+        }
+        return mastitulo;
+    }
+
     public void leerLista(String direccion) {
         try {
             ObjectInputStream lector = new ObjectInputStream(new FileInputStream(direccion));
@@ -164,7 +196,7 @@ public class Jugador implements Serializable {
     public static void main(String[] args) {
         Jugador objeto = new Jugador();
         Jugador j1 = new Jugador("cristiano", "Ronaldo", 33, 520, 2005, new Equipo("juventus", 20, "Turin"));
-        Jugador j2 = new Jugador("Lionel", "Messi", 31, 600, 2007, new Equipo("Barcelona", 30, "Barcelona"));
+        Jugador j2 = new Jugador("Lionel", "Messi", 31, 600, 2001, new Equipo("Barcelona", 30, "Barcelona"));
         Jugador j3 = new Jugador("Neymar", "Jr", 28, 200, 2011, new Equipo("PSG", 10, "Paris"));
         Jugador j4 = new Jugador("Eden", "Hazard", 27, 1590, 2010, new Equipo("Real Madrid", 40, "Madrid"));
 
@@ -176,10 +208,13 @@ public class Jugador implements Serializable {
         int a = Lista.size();//guardo en la variable a esta me permite saber el tamaño de lista (.size())
         System.out.println(a);
         objeto.escribirLista("C:\\\\Users\\\\its\\\\Desktop\\\\ejemplo.txt", Lista);
-        objeto.leerLista("C:\\\\Users\\\\its\\\\Desktop\\\\ejemplo.txt");
+//        objeto.leerLista("C:\\\\Users\\\\its\\\\Desktop\\\\ejemplo.txt");
         List<Jugador> b = objeto.leerJugadores("C:\\\\Users\\\\its\\\\Desktop\\\\ejemplo.txt");
-        for (Jugador jugador : b) {
-            System.out.println(jugador.getEdad());
-        }
+//        for (Jugador jugador : b) {
+//            System.out.println(jugador.getEdad());
+//        }
+        System.out.println("el jugador con menor edad es "+objeto.edadmenorObjeto(b).getNombre());
+        System.out.println("el juador que mas pronto debuto es "+" "+objeto.debutoP(b).getNombre()+" y su año de debut"+" "+objeto.debutoP(b).getAñoDebut());
+        System.out.println("el equipo con mas titulos es;"+" "+objeto.titulos(b).getEquipo().getNombre()+" con; "+" "+objeto.titulos(b).getEquipo().getNumerotitulos()+" "+"titulos");
     }
 }
