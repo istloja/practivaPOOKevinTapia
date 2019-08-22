@@ -37,7 +37,7 @@ public class Archivos {
         Archivos objeto= new Archivos();
         Scanner entrada=new Scanner(System.in);
         String hola=entrada.nextLine();
-        objeto.leerArchivo("C:\\Users\\its\\Desktop/ejemplo.txt");
+        objeto.leerArchivo("D:\\Users\\its\\Desktop/ejemplo.txt");
         objeto.escribirArchivo("C:\\Users\\its\\Desktop/ejemplo.txt",hola);
     }
     public void leerArchivo(String direccion){
