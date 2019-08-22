@@ -114,5 +114,7 @@ public class Federacion implements Serializable {
         objeto.escribirLista("C:\\\\Users\\\\its\\\\Desktop\\\\federacion.txt", Lista);
         List<Federacion> b = objeto.leerfede("C:\\\\Users\\\\its\\\\Desktop\\\\federacion.txt");
         System.out.println("el equipo mas grande es la federacion " + objeto.masnumEquipo(b).getNombre() + " con " + objeto.masnumEquipo(b).getNumEquipos() + " Equipos");
+        System.out.println("hola");
     }
+    
 }
