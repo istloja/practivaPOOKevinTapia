@@ -39,6 +39,7 @@ public class Archivos {
         String hola=entrada.nextLine();
         objeto.leerArchivo("D:\\Users\\its\\Desktop/ejemplo.txt");
         objeto.escribirArchivo("C:\\Users\\its\\Desktop/ejemplo.txt",hola);
+        //es un comentario
     }
     public void leerArchivo(String direccion){
         File archivo=new File(direccion);
