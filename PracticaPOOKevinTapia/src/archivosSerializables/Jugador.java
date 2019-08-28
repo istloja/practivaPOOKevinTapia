@@ -31,17 +31,27 @@ public class Jugador implements Serializable {
     private int añoDebut;
 
     private Equipo equipo;
+    private int PerdidasBalon;
+    private int asistencias;
+    private double KmRecorrridos;
+    private int PasesCompletados;
+    private int FalloGol;
 
-    public Jugador(String nombre, String apellido, int edad, int numeroGoles, int añoDebut, Equipo equipo) {
+    public Jugador() {
+    }
+
+    public Jugador(String nombre, String apellido, int edad, int numeroGoles, int añoDebut, Equipo equipo, int PerdidasBalon, int asistencias, double KmRecorrridos, int PasesCompletados, int FalloGol) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.numeroGoles = numeroGoles;
         this.añoDebut = añoDebut;
         this.equipo = equipo;
-    }
-
-    public Jugador() {
+        this.PerdidasBalon = PerdidasBalon;
+        this.asistencias = asistencias;
+        this.KmRecorrridos = KmRecorrridos;
+        this.PasesCompletados = PasesCompletados;
+        this.FalloGol = FalloGol;
     }
 
     public String getNombre() {
@@ -91,6 +101,48 @@ public class Jugador implements Serializable {
     public void setEquipo(Equipo equipo) {
         this.equipo = equipo;
     }
+
+    public int getPerdidasBalon() {
+        return PerdidasBalon;
+    }
+
+    public void setPerdidasBalon(int PerdidasBalon) {
+        this.PerdidasBalon = PerdidasBalon;
+    }
+
+    public int getAsistencias() {
+        return asistencias;
+    }
+
+    public void setAsistencias(int asistencias) {
+        this.asistencias = asistencias;
+    }
+
+    public double getKmRecorrridos() {
+        return KmRecorrridos;
+    }
+
+    public void setKmRecorrridos(double KmRecorrridos) {
+        this.KmRecorrridos = KmRecorrridos;
+    }
+
+    public int getPasesCompletados() {
+        return PasesCompletados;
+    }
+
+    public void setPasesCompletados(int PasesCompletados) {
+        this.PasesCompletados = PasesCompletados;
+    }
+
+    public int getFalloGol() {
+        return FalloGol;
+    }
+
+    public void setFalloGol(int FalloGol) {
+        this.FalloGol = FalloGol;
+    }
+
+ 
 
     public void escribirLista(String direccion, List<Jugador> lista) {
         try {
@@ -192,13 +244,53 @@ public class Jugador implements Serializable {
         return Lista;
 
     }
-
+public double PorcentajeAcierto(Jugador jugadorpro){
+    return (jugadorpro.getNumeroGoles()+jugadorpro.getAsistencias())/ jugadorpro.getFalloGol();
+}
+public double PorcentajeEfectividad(Jugador jugadorefec){
+   return(jugadorefec.getPasesCompletados()/jugadorefec.getPerdidasBalon()); 
+}
+public double EficienciaJugador(Jugador jugadorefi){
+    return (PorcentajeAcierto(jugadorefi)+PorcentajeEfectividad(jugadorefi)+jugadorefi.getKmRecorrridos());
+}
+public Jugador MayorEficiencia(List<Jugador> lista){
+    Jugador mayorefect=lista.get(0);
+     for (Jugador jugador : lista) {
+         if(EficienciaJugador(jugador)>EficienciaJugador(mayorefect)){
+             mayorefect=jugador;
+             
+         }
+        
+    }
+     return mayorefect;
+}
+public Jugador MporcentajeAcierto(List<Jugador> lista){
+    Jugador mayorporcentaje=lista.get(0);
+     for (Jugador jugador : lista) {
+         if(PorcentajeAcierto(jugador)>PorcentajeAcierto(mayorporcentaje)){
+             mayorporcentaje=jugador;
+             
+         }
+        
+    }
+     return mayorporcentaje; 
+}
+public Jugador Mporcentajeefectividad(List<Jugador> lista){
+    Jugador Mporcentajeefectividad=lista.get(0);
+    for (Jugador jugador : lista) {
+        if(PorcentajeEfectividad(jugador)> PorcentajeEfectividad(Mporcentajeefectividad)){
+            Mporcentajeefectividad=jugador;
+        }
+        
+    }
+    return Mporcentajeefectividad;
+}
     public static void main(String[] args) {
         Jugador objeto = new Jugador();
-        Jugador j1 = new Jugador("cristiano", "Ronaldo", 33, 520, 2005, new Equipo("juventus", 20, "Turin"));
-        Jugador j2 = new Jugador("Lionel", "Messi", 31, 600, 2001, new Equipo("Barcelona", 30, "Barcelona"));
-        Jugador j3 = new Jugador("Neymar", "Jr", 28, 200, 2011, new Equipo("PSG", 10, "Paris"));
-        Jugador j4 = new Jugador("Eden", "Hazard", 27, 1590, 2010, new Equipo("Real Madrid", 40, "Madrid"));
+        Jugador j1 = new Jugador("cristiano", "Ronaldo", 33, 520, 2005, new Equipo("juventus", 20, "Turin"),1,2,1.5,11,2);
+        Jugador j2 = new Jugador("Lionel", "Messi", 31, 600, 2001, new Equipo("Barcelona", 30, "Barcelona"),3,5,4.5,7,3);
+        Jugador j3 = new Jugador("Neymar", "Jr", 28, 200, 2011, new Equipo("PSG", 10, "Paris"),7,4,6.3,4,2);
+        Jugador j4 = new Jugador("Eden", "Hazard", 27, 520, 2010, new Equipo("Real Madrid", 40, "Madrid"),10,7,6.3,5,7);
 
         List<Jugador> Lista = new ArrayList<>();
         Lista.add(j1);
@@ -216,5 +308,8 @@ public class Jugador implements Serializable {
         System.out.println("el jugador con menor edad es "+objeto.edadmenorObjeto(b).getNombre());
         System.out.println("el juador que mas pronto debuto es "+" "+objeto.debutoP(b).getNombre()+" y su año de debut"+" "+objeto.debutoP(b).getAñoDebut());
         System.out.println("el equipo con mas titulos es;"+" "+objeto.titulos(b).getEquipo().getNombre()+" con; "+" "+objeto.titulos(b).getEquipo().getNumerotitulos()+" "+"titulos");
+        System.out.println("el jugadore mas eficiente es :"+objeto.MayorEficiencia(b).getNombre());
+        System.out.println("el jugador con mas porcentaje es:"+objeto.MporcentajeAcierto(b).getNombre());
+        System.out.println("el jugador con mas porcentaje de efectividad es: "+objeto.Mporcentajeefectividad(b).getNombre());
     }
 }
