@@ -83,7 +83,8 @@ public class Libro implements Serializable {
     public void setAutor(Autor autor) {
         this.autor = autor;
     }
-public Libro Masantiguo(List<Libro> lista) {
+
+    public Libro Masantiguo(List<Libro> lista) {
         Libro antiguo = lista.get(0);
         for (Libro libro : lista) {
             if (antiguo.getAñoPublicacion() > libro.getAñoPublicacion()) {
@@ -92,27 +93,20 @@ public Libro Masantiguo(List<Libro> lista) {
         }
         return antiguo;
     }
- public Libro Actualizado(List<Libro> lista) {
+
+    public Libro Actualizado(List<Libro> lista) {
         Libro actual = lista.get(0);
         for (Libro libro : lista) {
-            if (actual.getAñoPublicacion()>2013) {
+            if (actual.getAñoPublicacion() > 2014) {
                 actual = libro;
-                System.out.println("actualizado"+libro.getNombreLibro());
+                System.out.println("actualizado" + libro.getNombreLibro());
+            } else {
+                System.out.println("no actulizado" + libro.getNombreLibro());
             }
         }
         return actual;
     }
- public Libro Desactualizado(List<Libro> lista){
-         Libro dactual = lista.get(0);
-        for (Libro libro : lista){ 
-         
-         if(dactual.getAñoPublicacion()<2013){
-            dactual=libro;
-            System.out.println("desactualizado"+libro.getNombreLibro());
-        }
-}
-return dactual;
-}
+
     public void escribirLista(String direccion, List<Libro> lista) {
         try {
             ObjectOutputStream escr = new ObjectOutputStream(new FileOutputStream(direccion));
@@ -141,9 +135,9 @@ return dactual;
         Lista.add(l5);
 
         objeto.escribirLista("C:\\\\Users\\\\its\\\\Desktop\\\\Biblioteca.txt", Lista);
-        System.out.println("el libro mas antiguo es: "+objeto.Masantiguo(Lista).getNombreLibro());
-        System.out.println("libros actualizados: "+objeto.Actualizado(Lista));
-        System.out.println("desactual: "+objeto.Desactualizado(Lista));
+        System.out.println("el libro mas antiguo es: " + objeto.Masantiguo(Lista).getNombreLibro());
+        System.out.println(objeto.Actualizado(Lista));
+
     }
 }
 //un metodo que me diga si el llibor esta actualizado o no string
