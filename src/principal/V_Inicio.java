@@ -23,7 +23,7 @@ public class V_Inicio extends JFrame{
     JMenuBar jmb =new JMenuBar();
     JMenu menu1;
     JMenu menu2;
-    JMenuItem princi,salir;
+    JMenuItem princi,salir,calcular_Iva;
     public V_Inicio(){
         f.setTitle("ventana inicio");
         f.setSize(500, 450);
@@ -46,6 +46,12 @@ public class V_Inicio extends JFrame{
         salir.addActionListener(new OyenteVentanaPrincipal());
         menu1.add(salir);
         
+        calcular_Iva= new JMenuItem("Cálculo con iva");
+        calcular_Iva.addActionListener(new OyenteVentanaPrincipal());
+        menu1.add(calcular_Iva);
+        
+        
+        
     }
     public class OyenteVentanaPrincipal implements ActionListener{
         public void actionPerformed(ActionEvent e){
@@ -55,6 +61,9 @@ public class V_Inicio extends JFrame{
             }
             if(e.getSource()==princi){
                 new principal();
+            }
+            if(e.getSource()==calcular_Iva){
+                new Calcular_iva();
             }
             
         }
